@@ -36,3 +36,80 @@
     transform: rotate(360deg);
   }
 }
+
+
+.links-list {
+	width: 100%;
+	text-align: center;
+	}
+	
+.links-list a {
+	text-decoration: none;
+	color: #000000;
+	}
+
+
+
+.clickable, .the-blank, .ordinary {
+	width: 88px;
+	height: 88px;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 90px;
+	border: 1px #e3c819 solid;
+	}
+
+.clickable {
+	color: #fff;
+	background-color: #6d0ff2;
+	cursor: pointer;
+	}
+
+.clickable:hover, clickable:active {
+	background-color: #e3c819;
+	border: 1px #6d0ff2 solid;
+	color: #6d0ff2;
+	}
+
+.the-blank {
+	color: #ee0000;
+	}
+
+.ordinary {
+	background-color: #6d0ff2;
+	color: #fff;
+	}
+
+.main-square {
+	width: 270px;
+	margin: auto;
+	}
+
+.instructions, .winner {
+	width: 100%;
+	font-size: 29px;
+	text-align: center;
+	}
+
+.instructions {
+	color: #545452;
+	}
+
+.winner {
+	color: #00ff00;
+	}
+
+.goes {
+	font-size: 27px;
+	clear: both;
+	width: 100%;
+	text-align: center;
+	}
+
+.all {
+	width: 400px;
+	margin: auto;	
+}

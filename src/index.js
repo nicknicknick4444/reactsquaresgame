@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-    {/* <div><Link to="/">Home  |  </Link><Link to="../numbers">Numbers Game</Link></div> */}
-    <App />
-    {/* <NumbersGame /> */}
+      {/* <div><Link to="/">Home  |  </Link><Link to="../numbers">Numbers Game</Link></div> */}
+      <App />
+      {/* <NumbersGame /> */}
     </Router>
   </React.StrictMode>
 );
