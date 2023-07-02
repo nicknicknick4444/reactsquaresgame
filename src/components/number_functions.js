@@ -79,20 +79,27 @@ export default function NumbersGame() {
 
     return (
         <>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             <Linx />
-            <div style={{ width: "271px" }}>
-                {
-                nums.map((name, i) => (
-                    <Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} />
-                ))
-                }
+            <div className="all">
+                <div className="main-square">
+                    {
+                    nums.map((name, i) => (
+                        <Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} />
+                    ))
+                    }
+                </div>
+                <div>
+                    {win ? 
+                        <div className="winner">WINNER! In {clicked.length === 1 ? 
+                        "1 go!" : 
+                        clicked.length + " goes!"}</div> : 
+                        <div className="instructions">Rearrange the numbers</div>}
+                </div>
+                <div className="goes">
+                    {clicked.join(", ")}
+                </div>
             </div>
-            <p style={{ fontSize: "29px", clear: "both" }}>
-                {win === true ? <span style={{ color: "#00ff00" }}>WINNER! In {clicked.length === 1 ? "1 go!" : clicked.length + " goes!"}</span> : "Rearrange the numbers"}
-            </p>
-            <p style={{ fontSize: "22px", clear: "both" }}>
-                {clicked.join(", ")}
-            </p>
         </>
     );
 };

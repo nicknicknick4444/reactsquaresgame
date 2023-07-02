@@ -14,9 +14,18 @@ import Linx from "./linx.js";
 export default function Home() {
     return (
         <>
-        <Linx />
-        <div>
-            <h1>Hi!</h1>
+        {/* <Linx /> */}
+        <div className="links-list">
+            <h1>
+                <a href="https://ecomfrontend-nick.vercel.app/" target="#">
+                    Ecommerce Website
+                </a>
+            </h1>
+            <h1>
+                <a href="https://jade-kelpie-d2680a.netlify.app/numbers" target="#">
+                    Numbers Game
+                </a>
+            </h1>
         </div>
         </>
     );

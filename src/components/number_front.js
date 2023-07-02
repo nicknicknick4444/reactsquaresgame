@@ -1,10 +1,10 @@
-import React,{ memo } from "react";
+import React, { memo } from "react";
 
 const NumberGrid = ({name, itera, indic, is_clickable}) => {
     if (is_clickable === "Y") {
         return (
             <>
-                <p className="hovery" style={{ width: "90px", float: "left", color: "#5D3FD3" }} onClick={() => indic(name, itera)}>
+                <p className="clickable" onClick={() => indic(name, itera)}>
                     {name}
                 </p>
             </>
@@ -12,7 +12,7 @@ const NumberGrid = ({name, itera, indic, is_clickable}) => {
     } else if (name === "Blank") {
         return (
             <>
-                <p style={{ width: "90px", fontSize: "25px", float: "left", color: "#ee0000" }}>
+                <p className="the-blank">
                     {name}
                 </p>
             </>
@@ -20,7 +20,7 @@ const NumberGrid = ({name, itera, indic, is_clickable}) => {
     } else {
         return (
             <>
-                <p style={{ width: "90px", fontSize: "25px", float: "left" }}>
+                <p className="ordinary">
                     {name}
                 </p>
             </>
