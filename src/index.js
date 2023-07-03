@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import './index.css';
 import {BrowserRouter as Router, Link} from "react-router-dom";
 import App from './App';
+import PropProvider from "./components/hooks/prop-hooks.js";
 import Linx from "./components/pages.js";
 import NumbersGame from "./components/number_functions.js";
 import reportWebVitals from './reportWebVitals';
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
     <Router>
       {/* <div><Link to="/">Home  |  </Link><Link to="../numbers">Numbers Game</Link></div> */}
-      <App />
+      <PropProvider>
+        <App />
+      </PropProvider>
       {/* <NumbersGame /> */}
     </Router>
   </React.StrictMode>
