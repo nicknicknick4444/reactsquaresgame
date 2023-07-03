@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {Helmet, HelmetProvider, HelmetData} from "react-helmet-async";
+import {useProps} from "./hooks/prop-hooks.js";
 import Numbers from "./number_front.js";
 import Linx from "./linx.js";
 
 export default function NumbersGame() {
+    const {winsignal, setWinsignal} = useProps();
     const [nums, setNums] = useState(["1","2","Blank","4","5","3","7","8","9"]);
     const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
     const [clicked, setClicked] = useState([]);
@@ -77,29 +80,44 @@ export default function NumbersGame() {
         winner();
     }, [nums]);
 
+    useEffect(() => {
+        if (win) {
+            setWinsignal(true);
+        };
+    }, [win]);
+
+    const helmetData = new HelmetData({});
+
     return (
+        
         <>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-            <Linx />
-            <div className="all">
-                <div className="main-square">
-                    {
-                    nums.map((name, i) => (
-                        <Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} />
-                    ))
-                    }
+        {/* <Helmet>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Helmet> */}
+                <Linx />
+                
+                <div className="all">
+                <Helmet helmetData={helmetData}>
+                    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+                </Helmet>
+                    <div className="main-square">
+                        {
+                        nums.map((name, i) => (
+                            <Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} />
+                        ))
+                        }
+                    </div>
+                    <div>
+                        {win ? 
+                            <div className="winner">WINNER! In {clicked.length === 1 ? 
+                            "1 go!" : 
+                            clicked.length + " goes!"}</div> : 
+                            <div className="instructions">Rearrange the numbers</div>}
+                    </div>
+                    <div className="goes">
+                        {clicked.join(", ")}
+                    </div>
                 </div>
-                <div>
-                    {win ? 
-                        <div className="winner">WINNER! In {clicked.length === 1 ? 
-                        "1 go!" : 
-                        clicked.length + " goes!"}</div> : 
-                        <div className="instructions">Rearrange the numbers</div>}
-                </div>
-                <div className="goes">
-                    {clicked.join(", ")}
-                </div>
-            </div>
         </>
     );
 };

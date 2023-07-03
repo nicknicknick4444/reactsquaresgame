@@ -1,6 +1,8 @@
 import React, { memo } from "react";
+import {useProps} from"./hooks/prop-hooks.js";
 
 const NumberGrid = ({name, itera, indic, is_clickable}) => {
+    const {winsignal} = useProps();
     if (is_clickable === "Y") {
         return (
             <>
@@ -21,7 +23,7 @@ const NumberGrid = ({name, itera, indic, is_clickable}) => {
         return (
             <>
                 <p className="ordinary">
-                    {name}
+                    {name}{winsignal.toString()}
                 </p>
             </>
         );
