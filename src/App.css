@@ -48,22 +48,24 @@
 	color: #000000;
 	}
 
-
-
-.clickable, .the-blank, .ordinary {
+.clickable, .the-blank, .ordinary, .winning {
 	width: 88px;
 	height: 88px;
 	float: left;
 	font-size: 25px;
+	font-weight: bold;
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 0;
 	line-height: 90px;
+	}
+
+.clickable, .ordinary {
 	border: 1px #e3c819 solid;
 	}
 
 .clickable {
-	color: #fff;
+	color: #e3c819;
 	background-color: #6d0ff2;
 	cursor: pointer;
 	}
@@ -75,41 +77,105 @@
 	}
 
 .the-blank {
+	background-color: #370380;
+	border: 1px #d1d1d1 solid;
 	color: #ee0000;
 	}
 
 .ordinary {
 	background-color: #6d0ff2;
-	color: #fff;
+	color: #e3c819;
 	}
 
-.main-square {
-	width: 270px;
+.winning {
+	background-color: #6403a8;
+	color: #ad8b03;
+	border: 1px #ad8b03 solid;
+	}
+
+.main-square, .main-square-winning {
+	width: 268px;
+	height: 268px;
 	margin: auto;
 	}
 
+.main-square {
+	border: 1px #e3c819 solid;
+	}
+
+.main-square-winning {
+	border: 1px #ad8b03 solid;
+	}
+
 .instructions, .winner {
-	width: 100%;
-	font-size: 29px;
+	width: 300px;
+	margin: auto;
+	clear: both;
+	font-size: 25px;
 	text-align: center;
 	}
 
 .instructions {
-	color: #545452;
+	color: #323333;
 	}
 
 .winner {
-	color: #00ff00;
+	color: #14bf08;
+	font-weight: bold;
 	}
 
-.goes {
-	font-size: 27px;
+.goes, .goes-win {
+	font-size: 57px;
 	clear: both;
-	width: 100%;
+	width: 300px;
+	margin: auto;
 	text-align: center;
 	}
 
+.goes {
+	color: #323333;
+	}
+
+.goes-win {
+	color: #14bf08;
+	}
+
 .all {
-	width: 400px;
-	margin: auto;	
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/*width: 400px;*/
+	margin: auto;
 }
+
+.main-box {
+	}
+
+.reset {
+	font-size: 22px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	/*padding-left: 17px;
+	padding-right: 17px;*/
+	width: 200px;
+	height: 53px;
+	line-height: 50px;
+	text-align: center;
+	background-color: #e3c819;
+	color: #6d0ff2;
+	border: 3px #6d0ff2 solid;
+	border-radius: 5px;
+	}
+
+.reset:hover {
+	background-color: #6d0ff2;
+	color: #e3c819;
+	border: 3px #e3c819 solid;
+	border-radius: 5px;
+	}
+
+a {
+	text-decoration: none;
+	color: #6d0ff2;
+	}
+
