@@ -49,8 +49,8 @@
 	}
 
 .clickable, .the-blank, .ordinary, .winning {
-	width: 88px;
-	height: 88px;
+	width: 90px;
+	height: 90px;
 	float: left;
 	font-size: 25px;
 	font-weight: bold;
@@ -72,7 +72,7 @@
 
 .clickable:hover, clickable:active {
 	background-color: #e3c819;
-	border: 1px #6d0ff2 solid;
+	border: 1px #e3c819 solid;
 	color: #6d0ff2;
 	}
 
@@ -88,23 +88,40 @@
 	}
 
 .winning {
-	background-color: #6403a8;
+	background-color: #6F10B4;
 	color: #ad8b03;
 	border: 1px #ad8b03 solid;
 	}
 
 .main-square, .main-square-winning {
-	width: 268px;
-	height: 268px;
+	position: relative;
+	padding-left: 5px;
+	width: 280px;
+	height: 280px;
 	margin: auto;
 	}
 
-.main-square {
-	border: 1px #e3c819 solid;
+
+.main-square2, .main-square-winning2 {
+	position: relative;
+	top: -286px;
+	width: 286px;
+	height: 286px;
+	margin: auto;
+	z-index: -10;
 	}
 
-.main-square-winning {
-	border: 1px #ad8b03 solid;
+.main-square2 {
+	background-color: #e3c819;
+	}
+
+.main-square-winning2 {
+	background-color: #ad8b03;
+	}
+
+.other-items {
+	position: relative;
+	top: -276px;
 	}
 
 .instructions, .winner {
@@ -141,9 +158,9 @@
 	}
 
 .all {
-	padding-top: 10px;
+	padding-top: 25px;
 	padding-bottom: 10px;
-	/*width: 400px;*/
+	width: 400px;
 	margin: auto;
 }
 
@@ -155,11 +172,10 @@
 	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	/*padding-left: 17px;
-	padding-right: 17px;*/
 	width: 200px;
-	height: 53px;
-	line-height: 50px;
+	/*height: 53px;*/
+	padding-top: 10px;
+	padding-bottom: 13px;
 	text-align: center;
 	background-color: #e3c819;
 	color: #6d0ff2;
