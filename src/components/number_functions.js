@@ -5,13 +5,9 @@ import Numbers from "./number_front.js";
 import Linx from "./linx.js";
 
 export default function NumbersGame() {
-    const {winsignal, setWinsignal} = useProps();
     const [nums, setNums] = useState(["1","2","Blank","4","5","3","7","8","9"]);
     const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
     const [clicked, setClicked] = useState([]);
-    const [mainheight, setMainheight] = useState(0);
-    const [goesheight, setGoesheight] = useState(0);
-    const [top_padding, setTop_padding] = useState(0);
     const {win, setWin} = useProps();
     const indic = (name, itera) => changer(name, itera);
 
@@ -66,7 +62,7 @@ export default function NumbersGame() {
     useEffect(() => {        
         function winner() {
             var beat2 = nums.toString();
-            var win_seq = ["1","2","3","4","5","Blank ","7","8","9"];
+            var win_seq = ["1","2","3","4","5","","7","8","9"];
             var win_permitty = ["N", "N", "N", "N", "N", "N", "N", "N", "N"];
             if (beat2 === "1,2,3,4,5,Blank,7,8,9") {
                 setNums([...win_seq]);
@@ -102,19 +98,24 @@ export default function NumbersGame() {
                         ))
                         }
                     </div>
-                    <div>
+                    <div className={win ? "main-square-winning2" : "main-square2"}>
+                    </div>
+
+                    <div className="other-items">
+                        <div>
+                            {win ? 
+                                <div className="winner">WINNER! In </div> : 
+                                <div className="instructions">Numerical order challenge</div>}
+                        </div>
+                        <div className={win ? "goes-win" : "goes"} id="goes-number">
+                            {clicked.length === 1 ? clicked.length + " go" : clicked.length + " goes"}
+                        </div>
                         {win ? 
-                            <div className="winner">WINNER! In </div> : 
-                            <div className="instructions">Numerical order challenge</div>}
-                    </div>
-                    <div className={win ? "goes-win" : "goes"} id="goes-number">
-                        {clicked.length === 1 ? clicked.length + " go" : clicked.length + " goes"}
-                    </div>
-                    {win ? 
-                        <a href="/numbers">
-                            <div className="reset">Play Again?</div>
-                        </a>
-                    : null}
+                            <a href="/numbers">
+                                <div className="reset">Play Again?</div>
+                            </a>
+                        : null}
+                </div>
                 </div>
             </div>
         </>
