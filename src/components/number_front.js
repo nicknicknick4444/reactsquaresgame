@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import {useProps} from"./hooks/prop-hooks.js";
 
 const NumberGrid = ({name, itera, indic, is_clickable}) => {
-    const {winsignal} = useProps();
+    const {win} = useProps();
     if (is_clickable === "Y") {
         return (
             <>
@@ -14,16 +14,14 @@ const NumberGrid = ({name, itera, indic, is_clickable}) => {
     } else if (name === "Blank") {
         return (
             <>
-                <p className="the-blank">
-                    {name}
-                </p>
+                <p className="the-blank"></p>
             </>
         );
     } else {
         return (
             <>
-                <p className="ordinary">
-                    {name}{winsignal.toString()}
+                <p className={win ? "winning" : "ordinary"}>
+                    {name}
                 </p>
             </>
         );

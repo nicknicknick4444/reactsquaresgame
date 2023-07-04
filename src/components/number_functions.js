@@ -9,7 +9,10 @@ export default function NumbersGame() {
     const [nums, setNums] = useState(["1","2","Blank","4","5","3","7","8","9"]);
     const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
     const [clicked, setClicked] = useState([]);
-    const [win, setWin] = useState(false);
+    const [mainheight, setMainheight] = useState(0);
+    const [goesheight, setGoesheight] = useState(0);
+    const [top_padding, setTop_padding] = useState(0);
+    const {win, setWin} = useProps();
     const indic = (name, itera) => changer(name, itera);
 
     function changer(na, bo) {
@@ -80,27 +83,19 @@ export default function NumbersGame() {
         winner();
     }, [nums]);
 
-    useEffect(() => {
-        if (win) {
-            setWinsignal(true);
-        };
-    }, [win]);
-
     const helmetData = new HelmetData({});
 
     return (
         
         <>
-        {/* <Helmet>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        </Helmet> */}
+        <div className="outer-container">
                 <Linx />
                 
                 <div className="all">
                 <Helmet helmetData={helmetData}>
                     <meta name="viewport" content="width=device-width, initial-scale=0.9" />
                 </Helmet>
-                    <div className="main-square">
+                    <div className={win ? "main-square-winning" : "main-square"}>
                         {
                         nums.map((name, i) => (
                             <Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} />
@@ -109,15 +104,19 @@ export default function NumbersGame() {
                     </div>
                     <div>
                         {win ? 
-                            <div className="winner">WINNER! In {clicked.length === 1 ? 
-                            "1 go!" : 
-                            clicked.length + " goes!"}</div> : 
-                            <div className="instructions">Rearrange the numbers</div>}
+                            <div className="winner">WINNER! In </div> : 
+                            <div className="instructions">Numerical order challenge</div>}
                     </div>
-                    <div className="goes">
-                        {clicked.join(", ")}
+                    <div className={win ? "goes-win" : "goes"} id="goes-number">
+                        {clicked.length === 1 ? clicked.length + " go" : clicked.length + " goes"}
                     </div>
+                    {win ? 
+                        <a href="/numbers">
+                            <div className="reset">Play Again?</div>
+                        </a>
+                    : null}
                 </div>
+            </div>
         </>
     );
 };

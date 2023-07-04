@@ -6,11 +6,10 @@ import "../index.css";
 export default function Linx() {
     return (
         <>
-            <div>
+            {/* <div nav>
                 <Link to="/">Home  |  </Link>
                 <Link to="../numbers">Numbers Game</Link>
-            </div>
-            <div className="pithy">GOOSE!</div>
+            </div> */}
         </>
     );
 };
