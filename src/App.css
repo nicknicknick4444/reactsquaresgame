@@ -58,6 +58,7 @@
 	margin-top: 0;
 	margin-bottom: 0;
 	line-height: 90px;
+	box-sizing: content-box;
 	}
 
 .clickable, .ordinary {
@@ -94,34 +95,29 @@
 	}
 
 .main-square, .main-square-winning {
-	position: relative;
-	padding-left: 5px;
-	width: 280px;
-	height: 280px;
+	/*max-width: 275px;
+	max-height: 275px;*/
+	display: inline-block;
+	text-align: center;
+	/*width: auto;
+	high: auto;*/
+	margin-left: auto;
+	margin-right: auto;
 	margin: auto;
+	box-sizing: content-box;
 	}
 
-
-.main-square2, .main-square-winning2 {
-	position: relative;
-	top: -286px;
-	width: 286px;
-	height: 286px;
-	margin: auto;
-	z-index: -10;
+.main-square {
+	border: 3px #6d0ff2 solid;
 	}
 
-.main-square2 {
-	background-color: #e3c819;
-	}
-
-.main-square-winning2 {
-	background-color: #ad8b03;
+.main-square-winning {
+	border: 3px #6F10B4 solid;
 	}
 
 .other-items {
-	position: relative;
-	top: -276px;
+	/*position: relative;
+	top: -276px;*/
 	}
 
 .instructions, .winner {
@@ -162,6 +158,7 @@
 	padding-bottom: 10px;
 	width: 400px;
 	margin: auto;
+	text-align: center;
 }
 
 .main-box {
