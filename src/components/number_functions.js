@@ -80,6 +80,7 @@ export default function NumbersGame() {
     }, [nums]);
 
     const helmetData = new HelmetData({});
+    const leave_line = [2,5,8];
 
     return (
         
@@ -94,13 +95,14 @@ export default function NumbersGame() {
                     <div className={win ? "main-square-winning" : "main-square"}>
                         {
                         nums.map((name, i) => (
-                            <Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} />
+                            leave_line.indexOf(i) === -1 ? 
+                            <><Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} /></>
+                            :
+                            <><Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} /><br /></>
                         ))
                         }
+                        
                     </div>
-                    <div className={win ? "main-square-winning2" : "main-square2"}>
-                    </div>
-
                     <div className="other-items">
                         <div>
                             {win ? 
