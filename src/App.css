@@ -48,7 +48,7 @@
 	color: #000000;
 	}
 
-.clickable, .the-blank, .ordinary, .winning {
+.clickable, .the-blank, .the-blank-winning, .ordinary, .winning {
 	width: 90px;
 	height: 90px;
 	float: left;
@@ -77,10 +77,17 @@
 	color: #6d0ff2;
 	}
 
+
 .the-blank {
 	background-color: #370380;
+	color: #370380;
 	border: 1px #d1d1d1 solid;
-	color: #ee0000;
+	}
+
+.the-blank-winning {
+	background-color: #230638;
+	color: #000000;
+	border: 1px #999999 solid;
 	}
 
 .ordinary {
@@ -118,6 +125,7 @@
 .other-items {
 	/*position: relative;
 	top: -276px;*/
+	margin-top: 18px;
 	}
 
 .instructions, .winner {
@@ -159,20 +167,21 @@
 	width: 400px;
 	margin: auto;
 	text-align: center;
+	margin-top: 20px;
 }
 
 .main-box {
 	}
 
 .reset {
-	font-size: 22px;
 	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 200px;
+	line-height: 50px;
 	/*height: 53px;*/
-	padding-top: 10px;
-	padding-bottom: 13px;
+	/*padding-top: 10px;
+	padding-bottom: 13px;*/
 	text-align: center;
 	background-color: #e3c819;
 	color: #6d0ff2;
@@ -192,3 +201,6 @@ a {
 	color: #6d0ff2;
 	}
 
+#reset-words {
+	font-size: 22px;
+	}
