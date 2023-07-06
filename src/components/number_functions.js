@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import {Helmet, HelmetProvider, HelmetData} from "react-helmet-async";
+import {randomise} from "./hooks/hooks.js";
 import {useProps} from "./hooks/prop-hooks.js";
 import Numbers from "./number_front.js";
 import Linx from "./linx.js";
 
 export default function NumbersGame() {
-    const [nums, setNums] = useState(["1","2","Blank","4","5","3","7","8","9"]);
-    const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
+    const [game, setGame] = useState(randomise);
+    // const [nums, setNums] = useState(["1","2","Blank","4","5","3","7","8","9"]);
+    // const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
+    const [nums, setNums] = useState(game[0]);
+    const [permitty, setPermitty] = useState(game[1]);
     const [clicked, setClicked] = useState([]);
     const {win, setWin} = useProps();
     const indic = (name, itera) => changer(name, itera);
@@ -61,10 +65,12 @@ export default function NumbersGame() {
 
     useEffect(() => {        
         function winner() {
-            var beat2 = nums.toString();
-            var win_seq = ["1","2","3","4","5","","7","8","9"];
+            var game_as_string = nums.toString();
+            // var win_seq = ["1", "2", "3", "4", "5", "Blank", "7", "8", "9"];
+            var win_seq = game[2];
             var win_permitty = ["N", "N", "N", "N", "N", "N", "N", "N", "N"];
-            if (beat2 === "1,2,3,4,5,Blank,7,8,9") {
+            // if (beat2 === "1,2,3,4,5,Blank,7,8,9") {
+            if (game_as_string === game[3]) {
                 setNums([...win_seq]);
                 setPermitty([...win_permitty]);
                 setWin(true);
@@ -96,9 +102,9 @@ export default function NumbersGame() {
                         {
                         nums.map((name, i) => (
                             leave_line.indexOf(i) === -1 ? 
-                            <><Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} /></>
+                            <><Numbers name={name} key={i + "z"} itera={i} indic={indic} is_clickable={permitty[i]} /></>
                             :
-                            <><Numbers name={name} key={i} itera={i} indic={indic} is_clickable={permitty[i]} /><br /></>
+                            <><Numbers name={name} key={i + "z"} itera={i} indic={indic} is_clickable={permitty[i]} /><br /></>
                         ))
                         }
                         
@@ -110,13 +116,14 @@ export default function NumbersGame() {
                                 <div className="instructions">Numerical order challenge</div>}
                         </div>
                         <div className={win ? "goes-win" : "goes"} id="goes-number">
-                            {clicked.length === 1 ? clicked.length + " go" : clicked.length + " goes"}
+                            {clicked.length === 1 ? clicked.length + " move" : clicked.length + " moves"}
                         </div>
                         {win ? 
                             <a href="/numbers">
-                                <div className="reset">Play Again?</div>
+                                <div className="reset"><span id="reset-words">Play Again?</span></div>
                             </a>
                         : null}
+                        {game.toString()}
                 </div>
                 </div>
             </div>

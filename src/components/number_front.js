@@ -1,8 +1,9 @@
 import React, { memo } from "react";
-import {useProps} from"./hooks/prop-hooks.js";
+import {useProps} from "./hooks/prop-hooks.js";
 
 const NumberGrid = ({name, itera, indic, is_clickable}) => {
     const {win} = useProps();
+    
     if (is_clickable === "Y") {
         return (
             <>
@@ -17,6 +18,13 @@ const NumberGrid = ({name, itera, indic, is_clickable}) => {
                 <p className="the-blank"></p>
             </>
         );
+    } else if (win && name === "") {
+        return (
+            <>
+                <p className="the-blank-winning"></p>
+            </>
+        );
+
     } else {
         return (
             <>
