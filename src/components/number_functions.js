@@ -70,15 +70,13 @@ export default function NumbersGame() {
     };
 
     function severity(moves) {
-        if (moves >= 0 && moves <=3) {
-            setThe_severity("severe1");
-        };
-        if (moves > 3 && moves <= 8) {
-            setThe_severity("severe2");
-        };
-        if (moves > 8 && moves <= 20) {
-            setThe_severity("severe3");
-        };
+        var selector = moves + 1;
+        if (moves < 132) {
+            setThe_severity("severe" + selector);
+        } else {
+            setThe_severity("severe132")
+        }
+        console.log("severe" + selector);
         // return severe;
     };
 
@@ -136,22 +134,20 @@ export default function NumbersGame() {
                         </div>
                         <div className={win ? "goes-win" : "goes"} id="goes-number">
                             {/* {clicked.length === 1 ? clicked.length + " move" : clicked.length + " moves"}<br /> */}
-                            <span id={the_severity}>{moves === 1 ? moves + " turn" : moves + " turns"}</span>
+                            <span id={the_severity}>{moves === 1 ? moves + " move" : moves + " moves"}</span>
                         </div>
                         {win ? 
                             <a href="/numbers">
                                 <div className="reset"><span id="reset-words">Play Again?</span></div>
                             </a>
                         : null}
-                        {!win && moves >= 5 ? 
+                        {!win && moves >= 100 ? 
                         <div className="demoralise">
                             <p id="demoralise">You are doing TERRIBLY. You <i>could</i> give up.</p>
                             <a href="/numbers">
                                 <div className="reset"><span id="reset-words">New Game?</span></div>
                             </a>
                         </div> : null}
-                        {the_severity}
-                        {/* {game.toString()} */}
                 </div>
                 </div>
             </div>
