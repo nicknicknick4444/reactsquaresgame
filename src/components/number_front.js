@@ -12,7 +12,7 @@ const NumberGrid = ({name, itera, indic, is_clickable}) => {
                 </p>
             </>
         );
-    } else if (name === "Blank") {
+    } else if (!win && name === "") {
         return (
             <>
                 <p className="the-blank"></p>

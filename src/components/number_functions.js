@@ -11,18 +11,24 @@ export default function NumbersGame() {
     // const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
     const [nums, setNums] = useState(game[0]);
     const [permitty, setPermitty] = useState(game[1]);
-    const [clicked, setClicked] = useState([]);
+    // const [clicked, setClicked] = useState([]);
+    const [moves, setMoves] = useState(0);
+    const [the_severity, setThe_severity] = useState("severe1");
     const {win, setWin} = useProps();
     const indic = (name, itera) => changer(name, itera);
 
     function changer(na, bo) {
         var beat = nums.toString().split(",");
         for (const [index, item] of beat.entries()) {
-            if (item === "Blank") {
+            if (item === "") {
+                var new_moves = moves;
+                new_moves += 1;
                 beat[index] = na;
-                beat[bo] = "Blank";
+                beat[bo] = "";
                 setNums([...beat]);
-                setClicked([...clicked, na]);
+                // setClicked([...clicked, na]);
+                setMoves(new_moves);
+                severity(moves);
             }
         }
     };
@@ -63,6 +69,19 @@ export default function NumbersGame() {
         setPermitty([...new_permitty]);
     };
 
+    function severity(moves) {
+        if (moves >= 0 && moves <=3) {
+            setThe_severity("severe1");
+        };
+        if (moves > 3 && moves <= 8) {
+            setThe_severity("severe2");
+        };
+        if (moves > 8 && moves <= 20) {
+            setThe_severity("severe3");
+        };
+        // return severe;
+    };
+
     useEffect(() => {        
         function winner() {
             var game_as_string = nums.toString();
@@ -78,7 +97,7 @@ export default function NumbersGame() {
         };
 
         for (const [index, item] of nums.entries()) {
-            if (item === "Blank" && win === false) {
+            if (item === "" && win === false) {
                 decide_permitty(index);
             }
         }
@@ -116,14 +135,23 @@ export default function NumbersGame() {
                                 <div className="instructions">Numerical order challenge</div>}
                         </div>
                         <div className={win ? "goes-win" : "goes"} id="goes-number">
-                            {clicked.length === 1 ? clicked.length + " move" : clicked.length + " moves"}
+                            {/* {clicked.length === 1 ? clicked.length + " move" : clicked.length + " moves"}<br /> */}
+                            <span id={the_severity}>{moves === 1 ? moves + " turn" : moves + " turns"}</span>
                         </div>
                         {win ? 
                             <a href="/numbers">
                                 <div className="reset"><span id="reset-words">Play Again?</span></div>
                             </a>
                         : null}
-                        {game.toString()}
+                        {!win && moves >= 5 ? 
+                        <div className="demoralise">
+                            <p id="demoralise">You are doing TERRIBLY. You <i>could</i> give up.</p>
+                            <a href="/numbers">
+                                <div className="reset"><span id="reset-words">New Game?</span></div>
+                            </a>
+                        </div> : null}
+                        {the_severity}
+                        {/* {game.toString()} */}
                 </div>
                 </div>
             </div>
