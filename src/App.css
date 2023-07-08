@@ -131,6 +131,7 @@
 .instructions, .winner {
 	width: 300px;
 	margin: auto;
+	margin-top: -10px;
 	clear: both;
 	font-size: 25px;
 	text-align: center;
@@ -150,6 +151,7 @@
 	clear: both;
 	width: 300px;
 	margin: auto;
+	margin-top: -10px;
 	text-align: center;
 	}
 
@@ -203,4 +205,27 @@ a {
 
 #reset-words {
 	font-size: 22px;
+	}
+
+.demoralise {
+	width: 300px;
+	margin: auto;
+	margin-top: -10px;
+	font-size: 14px;
+	}
+
+#demoralise {
+	
+	}
+
+#severe1 {
+	color: #d1d1d1;
+	}
+
+#severe2 {
+	color: #ee0000;
+	}
+
+#severe3 {
+	color: #f0f0f0;
 	}
