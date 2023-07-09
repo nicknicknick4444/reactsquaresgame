@@ -159,7 +159,7 @@ export default function NumbersGame() {
                                 <div className="reset" onClick={() => reset_game()}><span id="reset-words">Play Again?</span></div>
                             
                         : null}
-                        {!win && moves >= 3 ? 
+                        {!win && moves >= 100 ? 
                         <div className="demoralise">
                             <p id="demoralise">This is going <i>TERRIBLY</i>.</p>
                             
