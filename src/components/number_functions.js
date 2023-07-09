@@ -17,6 +17,22 @@ export default function NumbersGame() {
     const {win, setWin} = useProps();
     const indic = (name, itera) => changer(name, itera);
 
+    function reset_game() {
+        setGame(randomise);
+    };
+
+    function set_rest() {
+        setNums(game[0]);
+        setPermitty(game[1]);
+        setMoves(0);
+        setThe_severity("severe1");
+        setWin(false);
+    };
+
+    useEffect(() => {
+        set_rest();
+    }, [game]);
+
     function changer(na, bo) {
         var beat = nums.toString().split(",");
         for (const [index, item] of beat.entries()) {
@@ -88,8 +104,10 @@ export default function NumbersGame() {
             var win_permitty = ["N", "N", "N", "N", "N", "N", "N", "N", "N"];
             // if (beat2 === "1,2,3,4,5,Blank,7,8,9") {
             if (game_as_string === game[3]) {
-                setNums([...win_seq]);
-                setPermitty([...win_permitty]);
+                // setNums([...win_seq]);
+                setNums(win_seq);
+                // setPermitty([...win_permitty]);
+                setPermitty(win_permitty);
                 setWin(true);
             }
         };
@@ -137,16 +155,16 @@ export default function NumbersGame() {
                             <span id={the_severity}>{moves === 1 ? moves + " move" : moves + " moves"}</span>
                         </div>
                         {win ? 
-                            <a href="/numbers">
-                                <div className="reset"><span id="reset-words">Play Again?</span></div>
-                            </a>
+                            
+                                <div className="reset" onClick={() => reset_game()}><span id="reset-words">Play Again?</span></div>
+                            
                         : null}
-                        {!win && moves >= 100 ? 
+                        {!win && moves >= 3 ? 
                         <div className="demoralise">
-                            <p id="demoralise">You are doing TERRIBLY. You <i>could</i> give up.</p>
-                            <a href="/numbers">
-                                <div className="reset"><span id="reset-words">New Game?</span></div>
-                            </a>
+                            <p id="demoralise">This is going <i>TERRIBLY</i>.</p>
+                            
+                                <div className="reset" onClick={() => reset_game()}><span id="reset-words">New Game?</span></div>
+                            
                         </div> : null}
                 </div>
                 </div>
