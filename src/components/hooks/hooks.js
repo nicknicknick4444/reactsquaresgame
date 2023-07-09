@@ -9,7 +9,7 @@ export function randomise() {
             ["1", "2", "3", "4", "5", "", "7", "8", "9"],
             "1,2,3,4,5,,7,8,9"
         ],
-        // GAME 2
+        // // GAME 2
         [
             ["3", "2", "9", "6", "1", "4", "", "7", "8"], 
             ["N", "N", "N", "Y", "N", "N", "N", "Y", "N"],
@@ -46,9 +46,6 @@ export function randomise() {
         ],
 ];
     
-
-
-
     var the_choice = Math.floor(Math.random() * 6);
 
     return game_choices[the_choice];
