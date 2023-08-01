@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Helmet, HelmetProvider, HelmetData} from "react-helmet-async";
+import {Helmet, HelmetData} from "react-helmet-async";
 import {randomise} from "./hooks/hooks.js";
 import {useProps} from "./hooks/prop-hooks.js";
 import Numbers from "./number_front.js";
@@ -7,11 +7,8 @@ import Linx from "./linx.js";
 
 export default function NumbersGame() {
     const [game, setGame] = useState(randomise);
-    // const [nums, setNums] = useState(["1","2","Blank","4","5","3","7","8","9"]);
-    // const [permitty, setPermitty] = useState(["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"]);
     const [nums, setNums] = useState(game[0]);
     const [permitty, setPermitty] = useState(game[1]);
-    // const [clicked, setClicked] = useState([]);
     const [moves, setMoves] = useState(0);
     const [the_severity, setThe_severity] = useState("severe1");
     const {win, setWin} = useProps();
@@ -42,7 +39,6 @@ export default function NumbersGame() {
                 beat[index] = na;
                 beat[bo] = "";
                 setNums([...beat]);
-                // setClicked([...clicked, na]);
                 setMoves(new_moves);
                 severity(moves);
             }
@@ -92,21 +88,15 @@ export default function NumbersGame() {
         } else {
             setThe_severity("severe132")
         }
-        console.log("severe" + selector);
-        // return severe;
     };
 
     useEffect(() => {        
         function winner() {
             var game_as_string = nums.toString();
-            // var win_seq = ["1", "2", "3", "4", "5", "Blank", "7", "8", "9"];
             var win_seq = game[2];
             var win_permitty = ["N", "N", "N", "N", "N", "N", "N", "N", "N"];
-            // if (beat2 === "1,2,3,4,5,Blank,7,8,9") {
             if (game_as_string === game[3]) {
-                // setNums([...win_seq]);
                 setNums(win_seq);
-                // setPermitty([...win_permitty]);
                 setPermitty(win_permitty);
                 setWin(true);
             }
@@ -124,7 +114,6 @@ export default function NumbersGame() {
     const leave_line = [2,5,8];
 
     return (
-        
         <>
         <div className="outer-container">
                 <Linx />
@@ -137,9 +126,9 @@ export default function NumbersGame() {
                         {
                         nums.map((name, i) => (
                             leave_line.indexOf(i) === -1 ? 
-                            <><Numbers name={name} key={i + "z"} itera={i} indic={indic} is_clickable={permitty[i]} /></>
+                            <React.Fragment key={"clothy-" + i}><Numbers key={i} name={name} itera={i} indic={indic} is_clickable={permitty[i]} /></ React.Fragment>
                             :
-                            <><Numbers name={name} key={i + "z"} itera={i} indic={indic} is_clickable={permitty[i]} /><br /></>
+                            <React.Fragment key={"clothy-" + i}><Numbers key={i} name={name} itera={i} indic={indic} is_clickable={permitty[i]} /><br /></ React.Fragment>
                         ))
                         }
                         
@@ -148,11 +137,10 @@ export default function NumbersGame() {
                         <div>
                             {win ? 
                                 <div className="winner">WINNER! In </div> : 
-                                <div className="instructions">Numerical order challenge</div>}
+                                <div className="instructions">Tile Puzzle Game</div>}
                         </div>
                         <div className={win ? "goes-win" : "goes"} id="goes-number">
-                            {/* {clicked.length === 1 ? clicked.length + " move" : clicked.length + " moves"}<br /> */}
-                            <span id={the_severity}>{moves === 1 ? moves + " move" : moves + " moves"}</span>
+                            <span key={moves} id={the_severity}>{moves === 1 ? moves + " move" : moves + " moves"}</span>
                         </div>
                         {win ? 
                             
