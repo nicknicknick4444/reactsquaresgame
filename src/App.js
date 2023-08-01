@@ -10,8 +10,7 @@ import NumbersGame from "./components/number_functions.js";
 function App() {
   let element = useRoutes([
     {path: "/", element: <Home />},
-    {path: "numbers", element: <NumbersGame />},
-    // {path: "other", element: <Appy />}
+    {path: "tiles", element: <NumbersGame />},
   ]);
   return element;
 }

@@ -63,7 +63,7 @@
 	}
 
 .clickable, .ordinary {
-	border: 1px #e3c819 solid;
+	/*border: 1px #e0e0e0 solid;*/
 	}
 
 .clickable {
@@ -74,21 +74,22 @@
 
 .clickable:hover, clickable:active {
 	background-color: #e3c819;
-	border: 1px #e3c819 solid;
+	/*border: 1px #707070 solid;*/
 	color: #6d0ff2;
+	opacity: 0.7;
 	}
 
 
 .the-blank {
 	background-color: #370380;
 	color: #370380;
-	border: 1px #d1d1d1 solid;
+	/*border: 1px #d1d1d1 solid;*/
 	}
 
 .the-blank-winning {
 	background-color: #230638;
 	color: #000000;
-	border: 1px #999999 solid;
+	/*border: 1px #999999 solid;*/
 	}
 
 .ordinary {
@@ -99,7 +100,7 @@
 .winning {
 	background-color: #6F10B4;
 	color: #ad8b03;
-	border: 1px #ad8b03 solid;
+	/*border: 1px #707070 solid;*/
 	}
 
 .main-square, .main-square-winning {
