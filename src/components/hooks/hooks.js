@@ -3,7 +3,7 @@ import Recat, {useState, useEffect} from "react";
 export function randomise() {
     const game_choices = [
     [
-        // GAME 1 - EASY
+        // GAME 1 - EASY; COMPLETE IN 1 MOVE
             ["1","2","","4","5","3","7","8","9"], 
             ["N", "N", "Y", "N", "Y", "N", "N", "N", "Y"],
             ["1", "2", "3", "4", "5", "", "7", "8", "9"],
